@@ -17,12 +17,12 @@ public class AppTest
 
 {
 
-    private Eat eat1;
+    private Bird bird1;
     @Before
     public void testBean1() throws Exception {
 
         ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-        eat1 = (Eat) ctx.getBean("eat1");
+        bird1 = (Bird) ctx.getBean("bird1");
 
     }
 
@@ -41,4 +41,30 @@ public class AppTest
 
         Assert.assertNotNull(cow);
     }
+
+    @org.junit.Test
+    public void testSheep()
+    {
+        Sheep sheep = new Sheep();
+
+        Assert.assertNotNull(sheep);
+    }
+
+    @org.junit.Test
+    public void testBabySheep()
+    {
+        BabySheep babySheep = new BabySheep();
+
+        Assert.assertNotNull(babySheep);
+    }
+
+    @org.junit.Test
+    public void testChicken()
+    {
+        Chicken chicken = new Chicken();
+
+        Assert.assertNotNull(chicken);
+    }
+
+
 }

@@ -7,9 +7,9 @@ import org.springframework.context.annotation.Bean;
  */
 public class AppConfig {
 
-    @Bean(name = "eat1")
-    public Eat getCowEat()
+    @Bean(name = "bird1")
+    public Bird getChickenBird()
     {
-        return new Cow();
+        return new Chicken();
     }
 }
