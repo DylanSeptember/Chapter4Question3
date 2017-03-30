@@ -19,10 +19,7 @@ public class App
 
 class Animal
 {
-    public void eat()
-    {
-        System.out.println("Eat grass");
-    }
+
 
     public void sleep()
     {
@@ -31,10 +28,21 @@ class Animal
 
 }
 
-class Cow extends Animal
+class Cow extends Animal implements Eat
 {
     public void getMilk()
     {
         System.out.println("Produced milk");
     }
+
+    public void eat()
+    {
+        System.out.println("Eat grass");
+    }
 }
+
+interface Eat               // not all animal eat the same foods
+{
+    public void eat();
+}
+
