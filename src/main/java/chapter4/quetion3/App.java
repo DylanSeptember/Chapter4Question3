@@ -28,19 +28,13 @@ class Animal
 
     }
 
-    public String eatGrass()                   //violate OCP and LSP and CRP
-    {
-        return "Eat grass";
-    }
 
-    public String getFaeces()
-    {
-        return "feaces";
-    }
+
+
 
 }
 
-class Cow
+class Cow implements Vegetarian
 {
     private Animal animal;
 
@@ -51,12 +45,21 @@ class Cow
     public void getMilk()
     {
         System.out.println("Cow Produced milk");
-        System.out.println("Cow said: 'Mooooo'");           //Speak     //violate SRP
+    }
+
+    public void speak()
+    {
+        System.out.println("Cow said: 'Mooooo'");
+    }
+
+    public String eatGrass()
+    {
+        return "Eat grass";
     }
 
     public String Defaecate()
     {
-        return ("cow " + animal.getFaeces());        //violate DIP
+        return ("cow feaces");
     }
 
     public void setAnimal()
@@ -71,7 +74,7 @@ class Cow
 
 }
 
-class Sheep
+class Sheep implements Vegetarian
 {
     private Animal animal;
 
@@ -82,12 +85,21 @@ class Sheep
     public void getWool()
     {
         System.out.println("Sheep Produced Wool");
-        System.out.println("Sheep said: 'Beehhh'");           //Speak     //violate SRP
+    }
+
+    public void speak()
+    {
+        System.out.println("Sheep said: 'Beehhh'");
+    }
+
+    public String eatGrass()
+    {
+        return "Eat grass";
     }
 
     public String defaecate()
     {
-        return "sheep " + animal.getFaeces();        //violate DIP
+        return "sheep feaces";
     }
 
     public void setAnimal()
@@ -113,7 +125,7 @@ class BabySheep
 
     public String Defaecate()
     {
-        return "baby " + sheep.defaecate();        //violate LSP
+        return "baby " + sheep.defaecate();
     }
 
     public void setSheep()
@@ -136,13 +148,13 @@ class Chicken implements Bird
         setAnimal();
     }
 
-    public String fly() {
-        return ("Fly");
+    public String wings() {
+        return ("Flap");
     }
 
     public String layEgg()
     {
-        return ("Chicken laid an egg");      // Chickens don't lay eggs
+        return ("Chicken laid an egg");
     }
 
     public void setAnimal()
@@ -158,6 +170,11 @@ class Chicken implements Bird
 
 interface Bird
 {
-    public String fly();                    // violate ISP
+    public String wings();
     public String layEgg();
+}
+
+interface Vegetarian
+{
+    public String eatGrass();
 }
